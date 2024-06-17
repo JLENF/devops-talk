@@ -16,5 +16,9 @@ def get_users():
         users.append(user)
     return jsonify(users)
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to the API!"
+    
 if __name__ == '__main__':
     app.run(debug=True)
