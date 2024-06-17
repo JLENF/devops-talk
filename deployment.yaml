@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-talk
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devops-talk
+  template:
+    metadata:
+      labels:
+        app: devops-talk
+    spec:
+      containers:
+      - name: devops-talk
+        image: jairolenfers/devops-talk:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: PYTHONUNBUFFERED
+          value: '1'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-talk-service
+spec:
+  selector:
+    app: devops-talk
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer

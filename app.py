@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from faker import Faker
+import socket
 
 app = Flask(__name__)
 fake = Faker()
@@ -16,9 +17,10 @@ def get_users():
         users.append(user)
     return jsonify(users)
 
-@app.route('/', methods=['GET'])
-def home():
-    return "Welcome to the API!"
+@app.route('/')
+def hello():
+    hostname = socket.gethostname()
+    return f'Hello from Kubernetes Pod: {hostname}'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
