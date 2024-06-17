@@ -19,6 +19,6 @@ def get_users():
 @app.route('/', methods=['GET'])
 def home():
     return "Welcome to the API!"
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
