@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: devops-talk
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: devops-talk
@@ -30,6 +30,6 @@ spec:
     app: devops-talk
   ports:
     - protocol: TCP
-      port: 80
+      port: 5000
       targetPort: 5000
   type: LoadBalancer
