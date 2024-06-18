@@ -20,7 +20,7 @@ def get_users():
 @app.route('/')
 def hello():
     hostname = socket.gethostname()
-    return f'Hello from Kubernetes Pod: {hostname}'
+    return f'Hello from Kubernetes Pod : {hostname}'
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
