@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: devops-talk
-        image: jairolenfers/devops-talk:latest
+        image: jairolenfers/devops-talk:v1.0.6
         ports:
         - containerPort: 5000
         env:
