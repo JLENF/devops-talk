@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: devops-talk
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: devops-talk
